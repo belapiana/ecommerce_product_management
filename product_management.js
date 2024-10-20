@@ -9,19 +9,25 @@ colorSelector.addEventListener("change", (event) => {
 })
 
 // Task 3: 
-let stock = 12
+let stock = 10
 const inventoryCount = document.getElementById('inventory-count')
 const purchaseButton = document.getElementById('purchase-button')
 
 function updateInventory () {
     if (stock > 0) {
-        purchaseButton.disable = false
+        purchaseButton.disabled = false
         inventoryCount.textContent = `In Stock: ${stock}`
+        alert('Thank you for your purchase!')
     }
     else {
-        purchaseButton.disable = true
+        purchaseButton.disabled = true
         inventoryCount.textContent = 'Out of Stock'
     }
 }
 
-purchaseButton.addEventListener
+purchaseButton.addEventListener('click', () => {
+    stock--
+    updateInventory()
+})
+
+updateInventory()
